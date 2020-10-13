@@ -3,7 +3,7 @@ import Soundfont, { InstrumentName, Player } from "soundfont-player"
 import { MidiValue } from "../../domain/note";
 import { Optional } from "../../domain/types"
 import { AudioNodesRegistry, DEFAULT_INSTRUMENT } from "../../domain/sound"
-import { resolveModuleName } from "typescript";
+
 
 interface Settings {
     AudioContext: AudioContextType
