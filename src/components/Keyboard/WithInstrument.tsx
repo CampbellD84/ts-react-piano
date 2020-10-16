@@ -1,10 +1,12 @@
 import React, { FunctionComponent } from "react"
 import { useAudioContext } from "../AudioContextProvider"
-import { SoundfontProvider } from "../../adapters/Soundfont"
+import { withInstrument } from "../../adapters/Soundfont"
 import { Keyboard } from "../Keyboard"
 import { useInstrument } from "../../state/Instrument"
 import "./style.css"
 
+
+const WrappedKeyboard = withInstrument(Keyboard)
 
 export const KeyboardWithInstrument: FunctionComponent = () => {
     const AudioContext = useAudioContext()!
@@ -12,10 +14,9 @@ export const KeyboardWithInstrument: FunctionComponent = () => {
 
 
     return (
-        <SoundfontProvider
+        <WrappedKeyboard
             AudioContext={AudioContext}
             instrument={instrument}
-            render={(props) => <Keyboard {...props} />}
         />
     )
 }
